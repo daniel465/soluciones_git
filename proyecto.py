@@ -1,6 +1,5 @@
 #Determina la cantidad de dias que has vivido
-#importamos date
-from datetime import date
+from datetime import date,timedelta
 import calendar
 ahora=date.today()
 #ingresamos la fecha nacimiento
@@ -10,12 +9,12 @@ mes=int(input("Digite el mes :"))
 dia=int(input("Digite el dia :"))
 fecha_nace=date(agno,mes,dia)
 #Fecha en que nacimiento fue :
-print('La fecha de nacimiento fue :')
-print('\t',fecha_nace.strftime('%A %d, %B %Y'))
+print('La Fecha de nacimiento fue :\t',fecha_nace.strftime('%A %d, %B %Y'))
 #Fecha actual de referencia es :
-print('Fecha actual de referencia :')
-print('\t',ahora.strftime('%A %d, %B %Y'))
+print('Fecha actual de referencia :\t',ahora.strftime('%A %d, %B %Y'))
 #cantidad de dias que vivimos por año
+print('='*70)
+print('Imprimiremos los dias que vivimos por año')
 print('='*70)
 fecha_nace_aux=fecha_nace
 comprobar=0
@@ -33,7 +32,7 @@ todaydias=(ahora-fecha_nace).days
 print("La cantidad de dias vividos son : ",todaydias)
 #La cantidad de dias que viviras en los siguientes meses
 print('='*70)
-print('Impresion de cantidad de dias que viviremos')
+print('Imprimiremos los dias que viviremos por mes entorno a este año')
 print('='*70)
 acumular=0
 fecha_aux=ahora
