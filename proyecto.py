@@ -7,6 +7,7 @@ def Menu():
     print('1).Imprimir la cantidad de dias Vividos')
     print('2).Imprimir la cantidad de dias Vividos por Años')
     print('3).Imprimir la cantidad de dias que Viviriamos por Mes en el Año')
+    print('4).Imprime la fecha, de la cantidad de dias que deseas saber')
     print('0).Salir. ("Terminar")')
     return int(input('Digite la opcion,Elige --> '))
 #Hallamos la cantidad de dias
@@ -39,7 +40,13 @@ def Mostrar_cant_dias_que_viviriamos(cant_dias_vividos,ahora):
         print("Para el año %d/%d, la cant de dias q vivirias es :%d, cant dias mes : %d/ %d"%(fecha_aux.year,i,cant_dias_vividos+acumular,cant_dias,acumular))
         ahora=ahora.replace(month=i,day=calendar.monthrange(ahora.year,i)[1])
     print('Total de dias que podriasmos vivir en este año seria : ',(acumular+cant_dias_vividos))
-
+#Determinar el dia que cumple cierta cantidad de dias
+def Determinar_dia_cumple_cant_dias(fecha_nace):
+    print('='*70,'\n\tImprimiremos el dia en que cumpliremos una cantidad de dias\n','='*70)
+    cant_dias_ver=int(input('Determine cuantos dias quiere ver la cantidad de dias : '))
+    lista_dias_ver=[int(input(f"Digite {i+1} :")) for i in range(0,cant_dias_ver)]
+    listafecha=[(fecha_nace+timedelta(days=i)).strftime(f'Para la cant dias:{i} la fecha es : %A %d, %B %Y') for i in lista_dias_ver]
+    [print(i) for i in listafecha]
 if __name__ == '__main__':
     ahora=date.today()
     #ingresamos la fecha nacimiento
@@ -62,5 +69,9 @@ if __name__ == '__main__':
             Mostrar_cant_dias_vividos_anual(fecha_nace,ahora)
         elif opcion==3:
             Mostrar_cant_dias_que_viviriamos(cant_dias,ahora)
+        elif opcion==4:
+            Determinar_dia_cumple_cant_dias(fecha_nace)
+        elif opcion==0:
+            break
         else:
-            break;
+            print('\n\t Digite una de las opciones\n')
